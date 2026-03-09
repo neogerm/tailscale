@@ -25,4 +25,4 @@ COPY run-tailscale.sh /render/
 COPY install-tailscale.sh /tmp
 RUN /tmp/install-tailscale.sh && rm -r /tmp/*
 
-CMD ./run-tailscale.sh
+CMD ["/bin/bash", "/render/run-tailscale.sh"]
