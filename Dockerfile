@@ -11,6 +11,7 @@ RUN apt-get -qq update \
     netcat-openbsd \
     wget \
     dnsutils \
+        python3 \
   > /dev/null \
   && apt-get -qq clean \
   && rm -rf \
