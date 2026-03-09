@@ -10,5 +10,6 @@ done
 export ALL_PROXY=socks5://localhost:1055/
 tailscale_ip=$(/render/tailscale ip)
 echo "Tailscale is up at IP ${tailscale_ip}"
+while true; do echo -e "HTTP/1.1 200 OK\r\nContent-Length: 2\r\n\r\nOK" | nc -l -p ${PORT:-10000} -q 1; done &
 
 wait ${PID}
