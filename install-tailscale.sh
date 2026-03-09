@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -x
-TAILSCALE_VERSION=${TAILSCALE_VERSION:-$(curl -sL https://pkgs.tailscale.com/stable/VERSION)}
+TAILSCALE_VERSION=${TAILSCALE_VERSION:-$(curl -sL https://pkgs.tailscale.com/stable/VERSION | tr -d '\n\r')}
 TS_FILE=tailscale_${TAILSCALE_VERSION}_amd64.tgz
 wget -q "https://pkgs.tailscale.com/stable/${TS_FILE}" && tar xzf "${TS_FILE}" --strip-components=1
 cp -r tailscale tailscaled /render/
